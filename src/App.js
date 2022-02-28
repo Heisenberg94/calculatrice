@@ -1,32 +1,31 @@
 import React, { useState } from "react";
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
     
 
     const [input, setInput] = useState("");
     const calculBouton = [];
-    [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, ".", "%"].forEach((item) => {
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "."].forEach((item) => {
         calculBouton.push(
-            <button
+            <button className={"btn btn-info"}
                 onClick={(e) => {
                     setInput(input + e.target.value);
                 }}
                 value={item}
                 key={item}
             >
-                {" "}
+
                 {item}
             </button>
         );
     });
 
     return (
-        <div className="wrapper">
+        <div className="container">
             {" "}
-            <div className="show-input">{input}</div>
-            <div className="digits flex">{calculBouton}</div>
-            <div className="modifiers subgrid">
-                {/* clear button */}
+            <div>{calculBouton}</div>
+            <div>
+               
 
                 <button onClick={() => setInput(input.substr(0, input.length - 1))}>
                     Clear
@@ -37,8 +36,8 @@ function App() {
                     AC
                 </button>
             </div>
-            <div className="operations subgrid">
-                {/* add button */}
+            <div>
+
                 <button onClick={(e) => setInput(input + e.target.value)} value="+">
                     +
                 </button>
@@ -77,6 +76,8 @@ function App() {
                     =
                 </button>
             </div>
+            <div className="show-input">{input}</div>
+
         </div>
     );
 }
