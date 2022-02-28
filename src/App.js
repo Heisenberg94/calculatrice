@@ -14,52 +14,28 @@ function App() {
                 value={item}
                 key={item}
             >
-
                 {item}
             </button>
         );
     });
-
     return (
         <div className="container">
             {" "}
             <div>{calculBouton}</div>
             <div>
-               
-
-                <button onClick={() => setInput(input.substr(0, input.length - 1))}>
-                    Clear
-                </button>
-
-                
-                <button onClick={() => setInput("")} value="">
-                    AC
-                </button>
+                <button className={"btn btn-danger"} onClick={() => setInput(input.substr(0, input.length - 1))}> Effacer </button>
+                <button className={"btn btn-danger"} onClick={() => setInput("")} value=""> C </button>
             </div>
             <div>
+                <button className={"btn btn-warning"} onClick={(e) => setInput(input + e.target.value)} value="+">+</button>
 
-                <button onClick={(e) => setInput(input + e.target.value)} value="+">
-                    +
-                </button>
+                <button className={"btn btn-warning"} onClick={(e) => setInput(input + e.target.value)} value="-"> {" "}-{" "} </button>
 
-               
-                <button onClick={(e) => setInput(input + e.target.value)} value="-">
-                    {" "}
-                    -{" "}
-                </button>
+                <button className={"btn btn-warning"} onClick={(e) => setInput(input + e.target.value)} value="*"> {" "} x </button>
 
-                <button onClick={(e) => setInput(input + e.target.value)} value="*">
-                    {" "}
-                    *
-                </button>
-
-                <button onClick={(e) => setInput(input + e.target.value)} value="/">
-                    {" "}
-                    /
-                </button>
+                <button className={"btn btn-warning"} onClick={(e) => setInput(input + e.target.value)} value="/"> {" "} / </button>
                 
-                <button
-                    onClick={(e) => {
+                <button className={"btn btn-warning"} onClick={(e) => {
                         try {
                             setInput(
                                 String(eval(input)).length > 3 &&
@@ -76,7 +52,7 @@ function App() {
                     =
                 </button>
             </div>
-            <div className="show-input">{input}</div>
+            <div className="col-form-label-sm">{input}</div>
 
         </div>
     );
