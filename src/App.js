@@ -20,12 +20,15 @@ function App() {
     });
     return (
         <div className="container">
-            {" "}
+            <h1>Calculatrice</h1>
+            <br/>
             <div>{calculBouton}</div>
+            <br/>
             <div>
                 <button className={"btn btn-danger"} onClick={() => setInput(input.substr(0, input.length - 1))}> Effacer </button>
                 <button className={"btn btn-danger"} onClick={() => setInput("")} value=""> C </button>
             </div>
+            <br/>
             <div>
                 <button className={"btn btn-warning"} onClick={(e) => setInput(input + e.target.value)} value="+">+</button>
 
@@ -52,7 +55,8 @@ function App() {
                     =
                 </button>
             </div>
-            <div className="col-form-label-sm">{input}</div>
+            <br/>
+            <input className="input-group-sm" value={input}/>
 
         </div>
     );
