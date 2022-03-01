@@ -18,6 +18,7 @@ function App() {
             </button>
         );
     });
+
     return (
         <div className="container">
             <h1>Calculatrice</h1>
